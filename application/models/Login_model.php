@@ -31,7 +31,7 @@ public function register()
 		$pass = $this->input->post('password');
 
 		$data = array(
-			'nama' => $nama,'username' => $uname, 'password' => MD5($pass), 'level' => 'user', 'alamat' => 'null', 'tgl_lahir' => 'null', 'gambar' => 'null'
+			'nama' => $nama,'username' => $uname, 'password' => MD5($pass), 'level' => 'user', 'alamat' => 'null', 'tgl_lahir' => 'null', 'gambar' => 'null.png'
 		);
 
 		$this->db->insert('user', $data);

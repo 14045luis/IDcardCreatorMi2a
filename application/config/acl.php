@@ -64,6 +64,10 @@ $acl = array(
 		'user' => true,
 		'admin' => true,
 	),
+	'organisasi' => array(
+		'user' => true,
+		'admin' => true,
+	),
 	'admin' => array(
 		'user' => false,
 		'admin' => true,
