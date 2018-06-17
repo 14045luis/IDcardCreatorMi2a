@@ -68,6 +68,10 @@ $acl = array(
 		'user' => true,
 		'admin' => true,
 	),
+	'desain' => array(
+		'user' => true,
+		'admin' => true,
+	),
 	'admin' => array(
 		'user' => false,
 		'admin' => true,

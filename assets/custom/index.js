@@ -1,7 +1,5 @@
 
 $(function() {
-
-
   $("#grid").jsGrid({
     width: "100%",
     height: "400px",
@@ -19,7 +17,6 @@ $(function() {
      var data = $.Deferred();
      return $.ajax({
        type: "GET",
-       
        url: "organisasi/getOrganization",
        dataType: "json"
        }).done(function(response){
@@ -53,7 +50,7 @@ $(function() {
       { name: "nm", title: "Nama", type: "text", width: 100 },
       { name: "id_organisasi", visible: false },
       { name: "kode", type: "readonly",  width: 30 },
-      {name: "mm", title: "Desain", type: "readonly" },
+      { name: "mm", title: "Desain", type: "readonly" },
       { type: "control" }
     ]
   });  

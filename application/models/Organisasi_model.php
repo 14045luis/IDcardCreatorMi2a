@@ -30,7 +30,7 @@ class Organisasi_model extends CI_Model {
 	}
 
 	public function addOrganization($id,$rand){
-		 $data = array('nama' => $this->input->post('nama') ,'kode' => $rand,'id_tema' => 1,'id_user' =>$id);
+		 $data = array('nama' => $this->input->post('nm') ,'kode' => $rand,'id_desain' => 1,'id_user' =>$id);
         $this->db->insert('organisasi', $data);
 	}
 
