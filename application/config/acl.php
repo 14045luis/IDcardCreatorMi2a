@@ -80,6 +80,10 @@ $acl = array(
 		'user' => false,
 		'admin' => true,
 	),
+	'organisasiadmin' => array(
+		'user' => false,
+		'admin' => true,
+	),
 
 
 );

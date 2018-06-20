@@ -62,8 +62,7 @@
                             <div class="content">
                                 <div class="author">
                                   <img class="avatar border-white" src="<?php echo base_url() ?>assets/img/<?php echo $row->gambar;  ?>" alt="..."/>
-                                  <h4 class="title"><?php echo $row->nama; ?><br />
-            
+                                  <h4 class="title"><?php echo $row->nama; ?><br />   
                                   </h4>
                                 </div>
                                 <p class="description text-center">
