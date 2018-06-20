@@ -27,9 +27,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="maps.html">
+                    <a href="<?php echo site_url() ?>/printCard">
                         <i class="ti-map"></i>
-                        <p>Maps</p>
+                        <p>Print</p>
                     </a>
                 </li>
                 <li>

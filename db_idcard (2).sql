@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2018 at 03:26 PM
+-- Generation Time: Jun 20, 2018 at 11:53 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -41,8 +41,8 @@ CREATE TABLE `desain` (
 
 INSERT INTO `desain` (`id_desain`, `nama`, `file`, `desain`) VALUES
 (1, 'Default', '', 'null.png'),
-(2, 'SEKOLAH', '', 'null.png'),
-(3, 'Sepak Bola', '', 'null.png');
+(2, 'Sekolah', '', 'null.png'),
+(3, 'Bola', '', 'null.png');
 
 -- --------------------------------------------------------
 
@@ -55,18 +55,20 @@ CREATE TABLE `organisasi` (
   `nama` varchar(50) NOT NULL,
   `kode` text NOT NULL,
   `id_desain` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `logo` varchar(50) NOT NULL,
+  `printed` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `organisasi`
 --
 
-INSERT INTO `organisasi` (`id_organisasi`, `nama`, `kode`, `id_desain`, `id_user`) VALUES
-(1, 'Chelsea FC', '0213i82', 1, 2),
-(19, 'Barcelona FC', '234jh', 1, 2),
-(20, 'Liverpool FC', 'KlbLnwPJ', 1, 2),
-(22, 'MU FC', 'eHvnQkRR', 2, 2);
+INSERT INTO `organisasi` (`id_organisasi`, `nama`, `kode`, `id_desain`, `id_user`, `logo`, `printed`) VALUES
+(1, 'Chelsea FC', '0213i82', 3, 2, '', 0),
+(19, 'Barcelona FC', '234jh', 3, 2, '', 0),
+(20, 'Liverpool FC', 'KlbLnwPJ', 2, 2, '', 0),
+(21, 'PT Indokomas', 'dfws221g', 1, 2, '', 0);
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,7 @@ ALTER TABLE `desain`
 -- AUTO_INCREMENT for table `organisasi`
 --
 ALTER TABLE `organisasi`
-  MODIFY `id_organisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_organisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`

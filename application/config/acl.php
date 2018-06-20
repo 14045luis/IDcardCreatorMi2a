@@ -72,6 +72,10 @@ $acl = array(
 		'user' => true,
 		'admin' => true,
 	),
+	'printCard' => array(
+		'user' => true,
+		'admin' => true,
+	),
 	'admin' => array(
 		'user' => false,
 		'admin' => true,
