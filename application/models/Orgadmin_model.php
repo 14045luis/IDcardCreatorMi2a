@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class OrganisasiAdmin_model extends CI_Model {
+class Orgadmin_model extends CI_Model {
 
 	public $variable;
 
@@ -14,7 +14,7 @@ class OrganisasiAdmin_model extends CI_Model {
 		  $this->db->select('o.id_organisasi,o.nama as nm,o.kode,o.id_desain,d.id_desain,d.nama as mm');
 		  $this->db->from('organisasi as o');
 		  $this->db->join('desain as d','d.id_desain = o.id_desain');
-		  $this->db->where('id_user', $id);
+		
 		  $query = $this->db->get();
         if($query->num_rows()>0){
             return $query->result();
@@ -28,6 +28,7 @@ class OrganisasiAdmin_model extends CI_Model {
             return $query->result_array();
         }
 	}
+
 
 	public function deleteOrganization(){
 		$id = $this->input->post('id_organisasi');

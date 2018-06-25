@@ -15,6 +15,19 @@ class Admin_model extends CI_Model {
 		$query = $this->db->get_where('user', array('id' => $id))->result();
 		return $query;
 	}
+		public function updateUser($id){
+
+		$data = array('nama' => $this->input->post('nama'),'alamat' => $this->input->post('alamat'),'tgl_lahir' => $this->input->post('tgl_lahir'));
+		$this->db->where('id',$id);
+		$this->db->update('user',$data);
+	}
+
+	public function editFoto($id){
+		$file = $this->upload->data();
+		$data = array('gambar' => $file['file_name']);
+		$this->db->where('id',$id);
+		$this->db->update('user',$data);
+	}
 
 }
 

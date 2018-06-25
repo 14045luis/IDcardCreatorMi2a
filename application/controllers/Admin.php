@@ -5,7 +5,7 @@ class Admin extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->Model('Admin_model');
+		$this->load->Model('user_model');
 		if($this->session->userdata('masuk')){
 			$sessData = $this->session->userdata('masuk');
 			$data['level'] = $sessData['level'];
@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
 			 {
 			 	if(!$this->acl->is_allowed($current_controller, $data['level']))
 			 	{
-			 		redirect('dashboardadmin','refresh');
+			 		redirect('admin','refresh');
 			 	}
 			 }
 
@@ -25,12 +25,56 @@ class Admin extends CI_Controller {
 
 		
 	}
+
+
 	public function index()
 	{
 		$sessData = $this->session->userdata('masuk');
 			$id = $sessData['id'];
-			$data['user'] = $this->Admin_model->getUserDetail($id);	
+			$data['user'] = $this->user_model->getUserDetail($id);	
 		$this->load->view('dashboardadmin',$data);
 	}
 
+	public function editProfil(){
+		$sessData = $this->session->userdata('masuk');
+		$id = $sessData['id'];
+		$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+		$this->form_validation->set_rules('tgl_lahir', 'tgl_lahir', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'alamt', 'trim|required');	
+		if ($this->form_validation->run() == FALSE) {
+			$this->form_validation->set_message('Update Profil', "Update Profil Gagal");
+			$data['user'] = $this->user_model->getUserDetail($id);	
+		$this->load->view('dashboard',$data);
+		} else {
+			$this->user_model->updateUser($id);
+			redirect('admin','refresh');
+		}
+	}
+
+	public function editFoto(){
+		$sessData = $this->session->userdata('masuk');
+		$id = $sessData['id'];
+			$config['upload_path']			='./assets/img/';
+			$config['allowed_types']		='jpg|png';
+				$config['max_width']			= 10240;
+			$config['max_height']			= 7680;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if(!$this->upload->do_upload('gambar'))
+			{
+					$data['error'] = array('error' => $this->upload->display_errors());
+					$data['user'] = $this->user_model->getUserDetail($id);	
+				$this->load->view('dashboardadmin',$data);
+
+			}else{
+				
+				$this->user_model->editFoto($id);
+			redirect('admin','refresh');
+			}
+
+	}
+
 }
+
+/* End of file Dashboard.php */
+/* Location: ./application/controllers/Dashboard.php */

@@ -29,7 +29,7 @@
     <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/jsgrid/jsgrid-theme.min.css" />
     <script src="<?php echo base_url()?>assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>assets/jsgrid/jsgrid.min.js"></script>
- <script type="text/javascript" src="<?php echo base_url()?>assets/custom/orgadmin.js"></script>
+ <script type="text/javascript" src="<?php echo base_url()?>assets/custom/user.js"></script>
 
 </head>
 <body>
@@ -46,7 +46,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Organization List </a>
+                    <a class="navbar-brand" href="#">Users List </a>
                 </div>
            
             </div>

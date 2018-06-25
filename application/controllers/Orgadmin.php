@@ -1,11 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class OrganisasiAdmin extends CI_Controller {
+class Orgadmin extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->Model('organisasiadmin_model');
+		$this->load->Model('orgadmin_model');
 		if($this->session->userdata('masuk')){
 			$sessData = $this->session->userdata('masuk');
 			$data['level'] = $sessData['level'];
@@ -15,7 +15,7 @@ class OrganisasiAdmin extends CI_Controller {
 			 {
 			 	if(!$this->acl->is_allowed($current_controller, $data['level']))
 			 	{
-			 		redirect('OrganisasiAdmin','refresh');
+			 		redirect('orgadmin','refresh');
 			 	}
 			 }
 
@@ -28,13 +28,13 @@ class OrganisasiAdmin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('OrganisasiAdmin');
+		$this->load->view('organisasiadmin');
 	}
 
 	public function getOrganization(){
 		$sessData = $this->session->userdata('masuk');
 			$id = $sessData['id'];
-		$result = $this->organisasi_model->getOrganization($id); 
+		$result = $this->orgadmin_model->getOrganization($id); 
         header("Content-Type: application/json");
         echo json_encode($result);
 	}
@@ -53,9 +53,20 @@ class OrganisasiAdmin extends CI_Controller {
     return implode($password); 
 	}
 
+	public function addOrganization(){
+		$sessData = $this->session->userdata('masuk');
+			$id = $sessData['id'];
+			$rand = $this->random_password();
+        $this->orgadmin_model->addOrganization($id,$rand);
+	}
+
+	public function editOrganization(){
+		$id = $this->input->post('id_organisasi');
+    $this->orgadmin_model->editOrganization($id); 
+	}
 	
 	public function deleteOrganization(){
-		$this->organisasi_model->deleteOrganization();
+		$this->orgadmin_model->deleteOrganization();
 	}
 
 
