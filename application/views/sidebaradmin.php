@@ -26,6 +26,13 @@
                         <p>Users</p>
                     </a>
                 </li>
+                <li class="active-pro">
+                    <a href="<?php echo site_url() ?>login/logout">
+                        <i class="ti-export"></i>
+                        <p>log out</p>
+                    </a>
+                </li>
+
             </ul>
     	</div>
     </div>

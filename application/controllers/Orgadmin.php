@@ -8,6 +8,7 @@ class Orgadmin extends CI_Controller {
 		$this->load->Model('orgadmin_model');
 		if($this->session->userdata('masuk')){
 			$sessData = $this->session->userdata('masuk');
+			$this->load->library('pdfgenerator');
 			$data['level'] = $sessData['level'];
 			$current_controller = $this->router->fetch_class();
 			$this->load->library('acl');
@@ -68,6 +69,15 @@ class Orgadmin extends CI_Controller {
 	public function deleteOrganization(){
 		$this->orgadmin_model->deleteOrganization();
 	}
+
+		public function cetak(){
+		$sessData = $this->session->userdata('masuk');
+			$id = $sessData['id'];
+		$data['organisasi'] = $this->orgadmin_model->getOrganization($id); 
+		$html = $this->load->view('cetakorganisasi',$data,true);
+		$this->pdfgenerator->generate($html,'hasil');
+	}
+
 
 
 }

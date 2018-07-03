@@ -39,9 +39,9 @@
                     </a>
                 </li>
 				<li class="active-pro">
-                    <a href="upgrade.html">
+                    <a href="<?php echo site_url() ?>login/logout">
                         <i class="ti-export"></i>
-                        <p>Upgrade to PRO</p>
+                        <p>log out</p>
                     </a>
                 </li>
             </ul>

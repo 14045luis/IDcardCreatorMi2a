@@ -1,11 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class useradmin extends CI_Controller {
+class Useradmin extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->Model('useradmin_model');
+		$this->load->library('pdfgenerator');
 		if($this->session->userdata('masuk')){
 			$sessData = $this->session->userdata('masuk');
 			$data['level'] = $sessData['level'];
@@ -69,6 +70,15 @@ class useradmin extends CI_Controller {
 		$this->useradmin_model->deleteOrganization();
 	}
 
+	public function cetak(){
+		$sessData = $this->session->userdata('masuk');
+			$id = $sessData['id'];
+		$data['user'] = $this->useradmin_model->getOrganization($id); 
+		$html = $this->load->view('cetakuser',$data,true);
+		$this->pdfgenerator->generate($html,'hasil');
+	}
+
+	
 
 }
 

@@ -64,6 +64,9 @@
                 </div>
             </div>
         </div>
+        <div class="text-center">
+       <?php echo "<a href='".base_url('useradmin/cetak')."' class='btn btn-primary' >Cetak</a>"; ?>
+        </div>
 
 
         <footer class="footer">
