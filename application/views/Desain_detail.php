@@ -56,8 +56,8 @@
                 <div class="row">
  <?php 
     $attributes = array('class' => 'form-signin');
-        echo form_open('desain/update_desain',$attributes); ?>
-                                   
+        echo form_open('desain/update_desain',array('enctype'=>'multipart/form-data'),$attributes); ?>
+         
                 <input type="hidden" name="id_organisasi" value="<?php echo $id; ?>">    
                     <?php foreach ($desain as $row) { ?>
 <div class="col-lg-4 col-md-5">
@@ -69,7 +69,18 @@
 </div>
                     </div>
                 <?php } ?>
-     
+                                 <div class="content">
+                               <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Logo</label>
+                                               <input type="file" name="gambar" class="form-control-file" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                             
+                            </div>
                 </div>
             </div>
              <div class="text-center">

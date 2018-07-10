@@ -44,10 +44,24 @@ class Desain extends CI_Controller {
 	}
 
 	public function update_desain(){
-		$ido = $this->input->post('id_organisasi');
+		$sessData = $this->session->userdata('masuk');
+			$config['upload_path']			='./assets/img/';
+			$config['allowed_types']		='jpg|png';
+				$config['max_width']			= 10240;
+			$config['max_height']			= 7680;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if(!$this->upload->do_upload('gambar'))
+			{
+					$data['error'] = array('error' => $this->upload->display_errors());
+				
+			}else{
+			$ido = $this->input->post('id_organisasi');
 		$idd = $this->input->post('id_desain');
 		$this->desain_model->updateDesain($ido,$idd); 
 		redirect('organisasi','refresh');
+			}
+		
 	}
 	
 

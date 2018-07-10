@@ -28,8 +28,9 @@ class Desain_model extends CI_Model {
 	}
 
 	public function updateDesain($ido,$idd){
+		$file = $this->upload->data();
 		$this->db->where('id_organisasi',$ido);
-		 $data = array('id_desain' => $idd);
+		 $data = array('id_desain' => $idd,'logo' => $file['file_name']);
         $this->db->update('organisasi',$data);
 	}
 
