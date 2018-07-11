@@ -11,7 +11,7 @@ class User_model extends CI_Model {
 	}
 
 	public function getUserDetail($id){
-		$this->db->select("nama,username,tgl_lahir,alamat,gambar");
+		$this->db->select("nama,idcard,username,tgl_lahir,alamat,gambar");
 		$query = $this->db->get_where('user', array('id' => $id))->result();
 		return $query;
 	}

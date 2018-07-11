@@ -65,9 +65,11 @@ class Login extends CI_Controller {
 		$this->load->view('register');
 	}
 
+
 	
 	public function registrasi()
 	{
+		$idcard= hexdec(uniqid());
 		$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 		$this->form_validation->set_rules('username', 'username', 'trim|required|callback_cekUsername');
 		$this->form_validation->set_rules('password', 'password', 'trim|required');	
@@ -77,7 +79,7 @@ class Login extends CI_Controller {
 			$this->load->view('register');
 		} else {
 			
-			$this->login_model->register();
+			$this->login_model->register($idcard);
 			redirect('login','refresh');
 		}
 	}

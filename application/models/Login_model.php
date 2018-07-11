@@ -24,14 +24,15 @@ class Login_model extends CI_Model {
 		}
 	}
 
-public function register()
+public function register($idcard)
 	{
+
 		$nama = $this->input->post('nama');
 		$uname = $this->input->post('username');
 		$pass = $this->input->post('password');
 
 		$data = array(
-			'nama' => $nama,'username' => $uname, 'password' => MD5($pass), 'level' => 'user', 'alamat' => 'null', 'tgl_lahir' => 'null', 'gambar' => 'null.png'
+			'idcard' => $idcard,'nama' => $nama,'username' => $uname, 'password' => MD5($pass), 'level' => 'user', 'alamat' => 'null', 'tgl_lahir' => 'null', 'gambar' => 'null.png'
 		);
 
 		$this->db->insert('user', $data);

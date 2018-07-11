@@ -1,90 +1,82 @@
-<?php foreach($user as $row){ ?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url() ?>assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url() ?>assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    border: 1px solid black;
+    margin: auto;
+    background: blue;
 
-    <title>ID CARD ONLINE MAKER</title>
+}
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+.orang{
+  height: 200px;
+  width: 150px;
+  float: left;
+  margin: 10px;
+}
+.logo{
+  text-align: right;
+  height: 200px;
+  width: 150px;
+  float: right;
+  margin: 10px;
+}
 
 
-    <!-- Bootstrap core CSS     -->
-    <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
-    <link href="<?php echo base_url() ?>assets/css/animate.min.css" rel="stylesheet"/>
-
-    <!--  Paper Dashboard core CSS    -->
-    <link href="<?php echo base_url() ?>assets/css/paper-dashboard.css" rel="stylesheet"/>
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="<?php echo base_url() ?>assets/css/demo.css" rel="stylesheet" />
-
-    <!--  Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="<?php echo base_url() ?>assets/css/themify-icons.css" rel="stylesheet">
+button:hover, a:hover {
+    opacity: 0.7;
+}
+    </style>
+    <title></title>
 </head>
 <body>
 
+<?php foreach ($user as $row ) { ?>
+<div class="card">
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-4 col-md-5">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="<?php echo base_url() ?>assets/img/sekolah.jpg" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                  <img class="avatar border-white" src="<?php echo base_url() ?>assets/img/<?php echo $row->gambar;  ?>" alt="..."/>
-                                   <h4> NAMA </h4>
-                                   
-                                  <h4 class="title"><?php echo $row->nama;?></h4>
-                                  <h4> ORGANISASI </h4>
-                                   <!-- <h4 class="title"><?php echo $row->organisasi;?></h4> -->
-                            </div>
-                            <hr>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <img src="./assets/img/<?php echo $row->gambar;  ?>" class="orang">
+  <?php foreach ($organisasi as $r ) { ?>
+  <img src="./assets/img/<?php echo $r->logo;  ?>" class="logo">
+     <?php } ?>
+  <h1><u><?php echo $row->nama; ?></u></h1>
+ <?php echo $row->idcard; ?>
+  <?php foreach ($organisasi as $r ) { ?>
+   <p>  <?php echo $r->nama; ?></p>
+  <?php } ?>
+  <p>  <?php echo $row->tgl_lahir; ?></p>
+  <p><?php echo $row->alamat; ?></p>
+  
+  
 
-
-
-
-</body>
-
-    <!--   Core JS Files   -->
-    <script src="<?php echo base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="<?php echo base_url() ?>assets/js/bootstrap-checkbox-radio.js"></script>
-
-	<!--  Charts Plugin -->
-	<script src="<?php echo base_url() ?>assets/js/chartist.min.js"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="<?php echo base_url() ?>assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="<?php echo base_url() ?>text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
-    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="<?php echo base_url() ?>assets/js/paper-dashboard.js"></script>
-
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="<?php echo base_url() ?>assets/js/demo.js"></script>
-
-</html>
+  
 <?php } ?>
+</div>
+</body>
+</html>

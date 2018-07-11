@@ -46,9 +46,11 @@ button:hover, a:hover {
 <?php foreach ($user as $row ) { ?>
 <div class="card">
   <img src="./assets/img/<?php echo $row->gambar;  ?>" alt="John" style="width:100%">
-  <h1><?php echo $row->nama; ?></h1>
+  <h1><u><?php echo $row->nama; ?></u></h1>
+ <?php echo $row->idcard; ?>
   <?php foreach ($organisasi as $r ) { ?>
    <p>  <?php echo $r->nama; ?></p>
+   <p>  <img src="./assets/img/<?php echo $r->logo; ?>" height="100" width="100"></p>
   <?php } ?>
   <p>  <?php echo $row->tgl_lahir; ?></p>
   <p><?php echo $row->alamat; ?></p>
